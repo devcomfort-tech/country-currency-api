@@ -1,4 +1,6 @@
 import sharp from "sharp";
+import fs from "fs/promises";
+import path from "path";
 
 interface TopCountry {
   name: string;
