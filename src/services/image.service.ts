@@ -76,7 +76,11 @@ export async function generateSummaryImage(
     </svg>
   `;
 
-  await sharp(Buffer.from(svg))
-    .png()
-    .toFile("cache/summary.png");
+  const outputDir = path.resolve(process.cwd(), "cache");
+
+await fs.mkdir(outputDir, { recursive: true });
+
+await sharp(Buffer.from(svg))
+  .png()
+  .toFile(path.join(outputDir, "summary.png"));
 }
